@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>AI Interview Platform</title>
-    <!-- Reference the CSS file using Flask's url_for -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
@@ -19,7 +18,7 @@
                 <h3>JOIN NOW</h3>
             </div>
         </nav>
-        <!-- <main>
+        <main>
             <h1>HighIQ</h1>
             <h2>
                 Improve Your Skill With <br>
@@ -27,11 +26,11 @@
             </h2>
             <div class="loginholder">
                 <a href="/login"><div class="loginbx">Login</div></a> 
-            <a href="/register"><div class="regibx">Register</div></a>
+                <a href="/register"><div class="regibx">Register</div></a>
             </div>
-             -->
             {% block content %}{% endblock %}
         </main>
     </div>
 </body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>
