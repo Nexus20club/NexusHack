@@ -1,0 +1,56 @@
+{% extends "home.html" %}
+{% block content %}
+
+<center><h1>Welcome {{ current_user.username }}!</h1></center><br><br>
+<div class="wrapper">
+   <div class="head1"> <center><h1>Add Your Basic Details</h1></center></div>
+<form method="POST">
+   <center>
+    <br><br><div class="div1">
+        <center> <h2>Personal Information</h2></center>
+     <div class="inputbox"><label for="name">Name : </label> <input type="text" name="name"  placeholder="John Due"></div> 
+     <div class="inputbox"><label for="email">Email : </label><input type="email" name="email"  placeholder="john@gmail.com"></div>
+     <div class="inputbox"><label for="dob">Date Of Birth : </label><input type="text" name="dob" placeholder="Date Of Birth"></div>
+     <div class="inputbox"><label for="phonenum">Phone Number : </label><input type="tel" name="phonenum"  placeholder="123-456-7890"></div>
+     <div class="inputbox"> <label for="address">Current Address : </label><input type="text" name="address"  placeholder="Your current address here..."></div>
+     <div class="inputbox"><label for="country">Country : </label><input type="text" name="country"  placeholder="e.g., India"></div>
+     <div class="inputbox"><label for="url">LinkedIn URL : </label><input type="url" name="url" placeholder="https://LinkedIn.com/username"></div>
+     </div><br><br>
+   </center>
+   
+   <center>
+    <div class="div2"><center> <h2>Skills</h2></center>
+        <center>
+        <div class="inputbox"><label for="name">Technical Skills:  </label> <input type="text" name="skills"  placeholder="e.g., Python, Java, AWS, etc."></div>
+        <div class="inputbox"><label for="email">Certifications and Licenses: </label><input type="text" name="certifications"  placeholder="e.g., Nexus Lead, AWS Certified Solutions Architect"></div>
+        <div class="inputbox"><label for="dob"> Languages:</label><input type="text" name="languages" placeholder="e.g., Tulu, Kannada, English"></div>
+       </center></div>
+   </center>
+
+    <center>
+       <br><br><div class="div3">
+       <center> <h2>Work Experience</h2></center>
+       <center>
+        <div class="inputbox"><label for="job_title">Job Title : </label><input type="text" name="job_title" placeholder="e.g., AWS Sysadmin" ></div>        
+        <div class="inputbox"> <label for="company">Company Name : </label><input type="text" name="company" placeholder="e.g., XYZ Corp" ></div>
+        <div class="inputbox"><label for="employment_dates"> Dates of Employment:</label><input type="text" name="employment_dates" placeholder="e.g., Jan 2020 - Dec 2023" ></div>
+        <div class="inputbox"> <label for="work_experience"> Responsibilities and Achievements: </label><input type="text" name="work_experience" placeholder="e.g., Managed cloud infrastructure, improved server uptime, etc."></div>   
+       </center>
+    </div> </center><br><br>
+
+    <center>
+        <br><br> <div class="div4">
+            <center> <h2>Awards and Recognition</h2></center>
+            <center><div class="inputbox"><label for="awards"> Awards/Recognition : </label><input type="text" name="awards" placeholder="e.g., Employee of the Year 2022" ></div></center><br><br>
+
+            <center> <h2>Additional Information</h2></center>
+            <center><div class="inputbox"><label for="summary"> Professional Summary: : </label><input type="text" name="summary" placeholder="A brief summary of your career goals and key strengths" ></div></center><br><br>
+
+        </div>
+    </center><br><br>
+    
+    <input type="submit" value="Update Resume Details">
+</form>
+</div>
+
+{% endblock %}
