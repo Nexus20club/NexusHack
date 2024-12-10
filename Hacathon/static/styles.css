@@ -14,6 +14,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    
 }
 
 /* Container Background */
@@ -79,6 +80,15 @@ main{
     font-size: 20px;
     text-decoration: none;
     margin: 20px;
+    transition: transform 0.5s ease, background-color 0.5s ease;
+    color: white;
+}
+.loginbx:hover{
+    background: #8473FF;
+    color: black;
+    border-color: #fff;
+    transition: transform 0.5s ease, background-color 0.5s ease;
+
 }
 .regibx {
     width: 205px;
@@ -92,7 +102,17 @@ main{
     font-size: 20px;
     text-decoration: none;
     margin: 20px;
+    color: black;
+
 }
+
+.regibx:hover{
+    background: white;
+    color: #8473FF;
+    transition: transform 1.5s ease, background-color 0.5s ease;
+
+}
+
 /* Login Heading */
 #login {
     color: aqua;
@@ -115,3 +135,86 @@ a{
 h2{
     font-size: 50px;
 }
+
+.wrapper{
+    width: 1250px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    color: #fff();
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.head1 h1{
+    font-size: 50px;
+}
+
+.div1{
+    width: 800px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    color: #fff();
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper .inputbox{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.inputbox input{
+    width: 350px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+
+}
+
+.div2{
+    width: 800px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    color: #fff();
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.div3{
+    width: 800px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    color: #fff();
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.div4{
+    width: 800px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    color: #fff();
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+
+

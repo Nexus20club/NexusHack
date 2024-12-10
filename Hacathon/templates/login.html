@@ -1,14 +1,18 @@
 {% extends "home.html" %}
 {% block content %}
-<div >
-<h2 id="login">Login</h2>
 
-<form method="POST">
-    {{ form.hidden_tag() }}
-    {{ form.username.label }} {{ form.username() }}<br>
-    {{ form.password.label }} {{ form.password() }}<br>
-    {{ form.submit() }}
-</form>
+
+<div class="wrapper">
+    <div >
+        <h2 id="login">Login</h2>
+        
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.username.label }} {{ form.username() }}<br>
+            {{ form.password.label }} {{ form.password() }}<br>
+            {{ form.submit() }}
+        </form>
+        </div>
+        <a href="/register">Don't have an account? Register here</a>
 </div>
-<a href="/register">Don't have an account? Register here</a>
 {% endblock %}
