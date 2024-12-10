@@ -1,12 +1,39 @@
 {% extends "home.html" %}
 {% block content %}
-<h2>Register</h2>
-<form method="POST">
-    {{ form.hidden_tag() }}
-    {{ form.username.label }} {{ form.username() }}<br>
-    {{ form.password.label }} {{ form.password() }}<br>
-    {{ form.confirm_password.label }} {{ form.confirm_password() }}<br>
-    {{ form.submit() }}
-</form>
-<a href="/login">Already have an account? Login here</a>
+
+<div class="wrapper">
+    <center><h1 id="login">Register</h1></center>
+    <center>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            
+            <!-- Username input with placeholder -->
+            <center><div class="inputbox">
+                {{ form.username.label }} : 
+                {{ form.username(placeholder="Enter your username") }}
+            </div></center>
+            
+            <!-- Password input with placeholder -->
+            <center><div class="inputbox">
+                {{ form.password.label }} :
+                {{ form.password(placeholder="Enter your password") }}
+            </div></center>
+            
+            <!-- Confirm password input with placeholder -->
+            <center><div class="inputbox">
+                {{ form.confirm_password.label }} :
+                {{ form.confirm_password(placeholder="Confirm your password") }}
+            </div></center>
+            
+            <!-- Submit button -->
+            <center><div id="subbtn"> {{ form.submit() }}</div></center>
+        </form>
+        
+        <!-- Link to login page -->
+        <center> 
+            <a id="ac1" href="/login">Already have an account? Login here</a>
+        </center>
+    </center>
+</div><br><br><br>
+
 {% endblock %}
