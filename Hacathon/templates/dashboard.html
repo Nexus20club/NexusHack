@@ -1,0 +1,40 @@
+{% extends "home.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+<p>Welcome {{ current_user.username }}!</p>
+<a href="/logout">Logout</a>
+
+<h1>Add Your Basic Details</h1>
+<form method="POST">
+    <h2>Personal Information</h2>
+    Name: <input type="text" name="name"  placeholder="John Due"><br>
+    Email: <input type="email" name="email"  placeholder="john@gmail.com"><br>
+    Date of Birth: <input type="text" name="dob" ><br>
+    Phone Number: <input type="tel" name="phonenum"  placeholder="123-456-7890"><br>
+    Country: <input type="text" name="country"  placeholder="e.g., India"><br>
+    LinkedIn URL: <input type="url" name="url" placeholder="https://LinkedIn.com/username"><br>
+
+    <h2>Address</h2>
+    Current Address: <textarea name="address"  placeholder="Your current address here..."></textarea><br>
+
+    <h2>Skills</h2>
+    Technical Skills: <input type="text" name="skills"  placeholder="e.g., Python, Java, AWS, etc."><br>
+    Certifications and Licenses: <textarea name="certifications" placeholder="e.g., Nexus Lead, AWS Certified Solutions Architect"></textarea><br>
+    Languages: <input type="text" name="languages" placeholder="e.g., Tulu, Kannada, English"><br>
+
+    <h2>Work Experience</h2>
+    Job Title: <input type="text" name="job_title" placeholder="e.g., AWS Sysadmin" ><br>
+    Company Name: <input type="text" name="company" placeholder="e.g., XYZ Corp" ><br>
+    Dates of Employment: <input type="text" name="employment_dates" placeholder="e.g., Jan 2020 - Dec 2023" ><br>
+    Responsibilities and Achievements: <textarea name="work_experience" placeholder="e.g., Managed cloud infrastructure, improved server uptime, etc."></textarea><br>
+
+    <h2>Awards and Recognition</h2>
+    Awards/Recognition: <input type="text" name="awards" placeholder="e.g., Employee of the Year 2022"><br>
+
+    <h2>Additional Information</h2>
+    Professional Summary: <textarea name="summary" placeholder="A brief summary of your career goals and key strengths"></textarea><br>
+    
+    <input type="submit" value="Update Resume Details">
+</form>
+
+{% endblock %}
