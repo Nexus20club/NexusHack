@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222121; /* Dark background */
+            color: #fff; /* White text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #333; /* Darker container background for contrast */
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-top: 10px;
+            width: 200px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            background-color: #8473FF; /* Button color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #7261cc; /* Slightly darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Token to Proceed</h1>
+        <form action="/validate-token" method="POST">
+            <input type="text" name="token" placeholder="Enter token" required>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
