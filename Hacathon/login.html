@@ -1,0 +1,30 @@
+{% extends "home.html" %}
+{% block content %}
+
+<div class="wrapper">
+    <div>
+       <center> <h1 id="login">Login</h1></center>
+        
+       <center>
+        <form method="POST">
+           <center> {{ form.hidden_tag() }}</center>
+           <center> 
+               <div class="inputbox"> 
+                   {{ form.username.label }}  :
+                   {{ form.username(placeholder="Enter your username") }} <!-- Add placeholder -->
+               </div>
+           </center>
+            <center>
+                <div class="inputbox">
+                    {{ form.password.label }}  :
+                    {{ form.password(placeholder="Enter your password") }} <!-- Add placeholder -->
+                </div>
+            </center>
+            <center><div id="subbtn"> {{ form.submit() }}</div></center>
+        </form>
+        </div>
+       <center> <a id="ac1" href="/register">Don't have an account? Register here</a></center>
+       </center>
+</div><br><br><br><br>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Interview Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo"></div>
+            <div class="navbar">
+                <ul>
+                    <li><h3>Features</h3></li>
+                    <li><h3>Contact Center</h3></li>
+                    <li><h3>About Us</h3></li>
+                </ul>
+                <div class="profile">
+
+                </div>
+                 
+            </div>
+        </nav>
+        <main>
+            <h1>High<span>IQ</span></h1>
+            <h2>
+                Improve Your Skill With <br>Our Help
+            </h2>
+            <div class="loginholder" id="loginholder">
+                <a href="/login" ><div class="loginbx" id="loginbx">Login</div></a> 
+                <a href="/register"><div class="regibx" id="regibx">Register</div></a>
+            </div>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
