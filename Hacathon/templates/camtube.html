@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Capture</title>
+    <style>
+        body {
+            background-color: #222121; /* Dark background color */
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            color: #8473FF; /* Light purple for the title */
+        }
+
+        video {
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #8473FF; /* Light purple border around the video */
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #8473FF; /* Light purple for the button */
+            color: #222121; /* Dark color for the button text */
+            font-size: 18px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:disabled {
+            background-color: #666666; /* Disabled button appearance */
+            cursor: not-allowed;
+        }
+
+        button:hover {
+            background-color: #5f5bff; /* Darker purple on hover */
+        }
+
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #gallery img {
+            width: 50px;
+            height: 50px;
+            margin: 2px;
+            border-radius: 4px;
+            border: 2px solid #8473FF;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Camera Image Capture</h1>
+        <video id="video" autoplay playsinline></video>
+        <button id="captureButton">Start Capturing</button>
+        <div id="gallery"></div>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const captureButton = document.getElementById('captureButton');
+        const gallery = document.getElementById('gallery');
+
+        let capturedImages = [];
+        let captureInterval;
+
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+                console.log('Camera access granted ✅');
+            } catch (error) {
+                console.error('Error accessing the camera', error);
+                alert('Camera access is required to capture images.');
+            }
+        }
+
+        // Function to start capturing images
+        function startCapturing() {
+            if (!video.srcObject) {
+                alert('Camera is not active. Please allow camera access.');
+                return;
+            }
+
+            captureButton.disabled = true; // Disable the button once capturing starts
+            console.log('Image capture started 📸');
+
+            captureInterval = setInterval(() => {
+                if (capturedImages.length < 25) {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+
+                    const context = canvas.getContext('2d');
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                    const imageDataUrl = canvas.toDataURL('image/png'); 
+                    capturedImages.push(imageDataUrl);
+
+                    const img = document.createElement('img');
+                    img.src = imageDataUrl;
+                    gallery.appendChild(img);
+
+                    if (capturedImages.length === 25) {
+                        clearInterval(captureInterval); 
+                        console.log(' uploading to backend... 🚀');
+                        uploadImages();
+                    }
+                }
+            }, 1000 / 3); // 3 images per second
+        }
+
+        // Function to send the images to the backend
+        async function uploadImages() {
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ images: capturedImages })
+                });
+
+                const result = await response.json();
+                alert('Server Response: ' + result.message);
+                console.log('Images uploaded successfully ✅');
+                window.location.href = '/start-training';
+
+            } catch (error) {
+                console.error('Error sending images to the backend', error);
+            }
+        }
+
+        captureButton.addEventListener('click', () => {
+            if (!video.srcObject) {
+                alert('Camera permission required. Please grant access.');
+                startCamera().then(() => startCapturing());
+            } else {
+                startCapturing();
+            }
+        });
+
+        startCamera();
+    </script>
+</body>
+</html>
